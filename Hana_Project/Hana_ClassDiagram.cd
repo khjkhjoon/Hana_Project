@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Hana.KHJ.Bullet">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAQAAACIAgAAAAAAAAAAAAAgAIAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\KHJ\Scripts\Bullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hana.KHJ.Camera_Move">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAABACAAAAAAAAA=</HashCode>
+      <FileName>Assets\KHJ\Scripts\Camera_Move.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hana.KHJ.Enemy">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IMQBAwQIECIBAChAAAQAAAAAAAEEAAABAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\KHJ\Scripts\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hana.KHJ.Player">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JASAAACIMiMAoAhgACSAAACAAAAEAAAABBJAgAAQAAA=</HashCode>
+      <FileName>Assets\KHJ\Scripts\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hana.Common.GameManager">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iAAAgIAAgAAAAAEAABAAAACgAAIEAAAABAIAAAAAAAA=</HashCode>
+      <FileName>Assets\LYJ\Common\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hana.Common.Singleton&lt;T&gt;">
+    <Position X="2.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAEAAAAQAIQAQAAAAACkA=</HashCode>
+      <FileName>Assets\LYJ\Common\Singleton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hana.LYJ.SkillManager">
+    <Position X="0.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Assets\LYJ\Common\SkillManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hana.Common.UIManager">
+    <Position X="4.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQABAAAgQQAgAAUEAABAAIAAAAIAAAAIgIAAACA=</HashCode>
+      <FileName>Assets\LYJ\Common\UIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hana.LYJ.WaveManager">
+    <Position X="0.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAABAAAAAAAAGAAABACAAEAAQAAA=</HashCode>
+      <FileName>Assets\LYJ\Common\WaveManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hana.LYJ.AttackButton">
+    <Position X="2.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAEAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LYJ\Scripts\AttackButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hana.LYJ.HealthBarController">
+    <Position X="6.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACABAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\LYJ\Scripts\HealthBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hana.LYJ.Joystick">
+    <Position X="0.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQCAAAAAAAAIAAAAAABAAgAAAAAAAAAAAAACAAAAIAA=</HashCode>
+      <FileName>Assets\LYJ\Scripts\Joystick.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Hana.PYC.BossControler">
+    <Position X="3.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAQAAEAEAAAAAAAAAAAAAAAAAAAAEAAIAAAAAA=</HashCode>
+      <FileName>Assets\PYC\BossControler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hana.PYC.MidBossControler">
+    <Position X="5.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAgAAAQAAEAAAAAAAAABAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Assets\PYC\MidBossControler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

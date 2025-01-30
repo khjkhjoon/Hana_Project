@@ -29,6 +29,14 @@ namespace Hana.KHJ
         [SerializeField] private float fireRate = 2f;     // 발사 간격 (초 단위)
         private float nextFireTime = 0f;                 // 다음 발사 가능 시간
         private Vector3 lastMoveDirection;               // 최근 이동 방향
+
+        public Bullet Bullet
+        {
+            get => default;
+            set
+            {
+            }
+        }
         #endregion
 
         #region Unity 기본 함수

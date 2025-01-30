@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Hana.Common;
 using Hana.LYJ;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,7 +44,48 @@ namespace Hana.KHJ
         public Slider healthBar;
         #endregion
 
+        #region 사운드 관련 변수
+        public AudioSource audioSource; // 오디오 소스 컴포넌트
+        public AudioClip[] damageSounds; // 데미지 사운드 배열
+        public AudioClip[] deathSounds; // 죽을 때 사운드 배열
+        #endregion
+
         private GameObject nearestEnemy; // 가장 가까운 적 저장
+
+        public GameManager gameManager;      // 게임 매니저 참조
+        public SkillManager skillManager;    // 스킬 매니저 참조
+
+        public Bullet Bullet
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public GameManager GameManager
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public HealthBarController HealthBarController
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public Joystick Joystick
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
         #region 유니티 기본 함수
         void Start()
@@ -181,6 +223,8 @@ namespace Hana.KHJ
             currentHealth -= damage;
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
+            PlayRandomSound(damageSounds); // 데미지 사운드 재생
+
             UpdateHealthBar(); 
 
             if (currentHealth <= 0)
@@ -192,6 +236,7 @@ namespace Hana.KHJ
         private void Die()
         {
             Debug.Log("Player Died");
+            PlayRandomSound(deathSounds);
         }
         #endregion
 
@@ -205,6 +250,17 @@ namespace Hana.KHJ
             }
         }
 
+        #endregion
+
+        #region 사운드 관련 함수
+        private void PlayRandomSound(AudioClip[] soundArray)
+        {
+            if (soundArray != null && soundArray.Length > 0 && audioSource != null)
+            {
+                int randomIndex = Random.Range(0, soundArray.Length); // 랜덤 인덱스 선택
+                audioSource.PlayOneShot(soundArray[randomIndex]); // 사운드 재생
+            }
+        }
         #endregion
     }
 }

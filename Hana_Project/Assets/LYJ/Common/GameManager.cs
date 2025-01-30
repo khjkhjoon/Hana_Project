@@ -12,6 +12,46 @@ namespace Hana.Common
         private float levelUpProgress;
         private float levelUpMax;
 
+        public UIManager UIManager
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public LYJ.SkillManager SkillManager
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public LYJ.WaveManager WaveManager
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public KHJ.Enemy Enemy
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public KHJ.Player Player
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void StartGame()
         {
             // 게임 시작 로직

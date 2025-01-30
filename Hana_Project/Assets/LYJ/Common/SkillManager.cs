@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Hana.Common;
 using UnityEngine;
 
 namespace Hana.LYJ
 {
-    public class SkillManager : MonoBehaviour
+    public class SkillManager : Singleton<SkillManager>
     {
         public void SelectSkill(string skillName)
         {

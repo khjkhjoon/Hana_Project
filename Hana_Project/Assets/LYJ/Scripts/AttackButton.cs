@@ -9,6 +9,14 @@ namespace Hana.LYJ
     {
         public Player player; // PlayerAttack을 직접 연결
 
+        public Player Player
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         private void Start()
         {
             if (player == null)

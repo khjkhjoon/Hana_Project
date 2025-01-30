@@ -11,6 +11,30 @@ namespace Hana.LYJ
         [SerializeField] private GameObject[] enemies;      // 적 프리팹 배열
         [SerializeField] private Transform[] spawnPoints;   // 적 스폰 위치 배열
 
+        public KHJ.Enemy Enemy
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public PYC.MidBossControler MidBossControler
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public PYC.BossControler BossControler
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void StartNewWave(int wave)
         {
             // 새로운 웨이브 시작

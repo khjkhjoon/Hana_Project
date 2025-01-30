@@ -16,6 +16,38 @@ namespace Hana.Common
         [SerializeField] private GameObject skillPanel;       // 스킬 선택 패널 UI
         [SerializeField] private Button[] skillButtons;       // 스킬 선택 버튼들
 
+        public LYJ.Joystick Joystick
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public LYJ.HealthBarController HealthBarController
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public LYJ.AttackButton AttackButton
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public GameManager GameManager
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void UpdateWaveText(int wave)
         {
             // 웨이브 텍스트 업데이트

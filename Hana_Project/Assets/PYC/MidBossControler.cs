@@ -13,6 +13,14 @@ namespace Hana.PYC
         [SerializeField] private GameObject attackEffect;
         [SerializeField] private GameObject dieEffect;
 
+        public LYJ.HealthBarController HealthBarController
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void MidBossMove()
         {
 

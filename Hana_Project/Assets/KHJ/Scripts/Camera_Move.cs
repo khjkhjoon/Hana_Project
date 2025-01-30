@@ -8,6 +8,15 @@ namespace Hana.KHJ
     {
         public GameObject player;
         public float cameraHeight = 20f;
+
+        public Player Player
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         // Start is called before the first frame update
         void Start()
         {

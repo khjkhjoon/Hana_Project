@@ -400,6 +400,7 @@
 "Assets/LYJ/Scripts/AttackButton.cs"
 "Assets/LYJ/Scripts/HealthBar.cs"
 "Assets/LYJ/Scripts/Joystick.cs"
+"Assets/PYC/BossControler.cs"
 "Assets/PYC/MidBossControler.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"

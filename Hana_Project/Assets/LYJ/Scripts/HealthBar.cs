@@ -14,8 +14,8 @@ namespace Hana.LYJ
 
         private void Start()
         {
-            // PlayerController Ã£±â
-            player = GetComponent<Player>();
+            GameObject playerObj = GameObject.FindWithTag("Player");
+            player = playerObj.GetComponent<Player>();
 
             if (player == null)
             {

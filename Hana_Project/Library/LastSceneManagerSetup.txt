@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/KHJ/Scenes/25.01.23_1.unity
+- path: Assets/KHJ/Scenes/25.02.04.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

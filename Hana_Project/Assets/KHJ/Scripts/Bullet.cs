@@ -11,7 +11,7 @@ namespace Hana.KHJ
         private float damage;
         private string shooterTag; // 발사자 태그 (Player, Enemy 등)
         private Vector3 spawnPosition; // 총알이 생성된 위치
-        private float maxDistance = 20f; // 사라질 최대 거리
+        private float maxDistance = 15f; // 사라질 최대 거리
 
         #endregion
 
@@ -44,8 +44,11 @@ namespace Hana.KHJ
 
         private void OnTriggerEnter(Collider other)
         {
-            // 발사자와 같은 태그를 가진 객체는 무시
-            if (other.CompareTag(shooterTag)) return;
+            // 발사자와 같은 태그인지 확인 후 무시
+            if (other.CompareTag(shooterTag)|| other.CompareTag("Ground") || other.CompareTag("Bullet"))
+            {
+                return;
+            }
 
             // 적 태그에 따라 데미지 적용
             if (other.CompareTag("Enemy") && shooterTag == "Player")
@@ -61,12 +64,13 @@ namespace Hana.KHJ
                 Player player = other.GetComponent<Player>();
                 if (player != null)
                 {
-                    player.TakeDamage(damage); // Player 클래스에 TakeDamage 메서드 필요
+                    player.TakeDamage(damage);
                 }
             }
 
             // 총알 제거
             Destroy(gameObject);
         }
+
     }
 }

@@ -11,6 +11,10 @@ namespace Hana.Common
 {
     public class UIManager : Singleton<UIManager>
     {
+
+        public AudioSource audioSource; // 버튼 클릭 사운드를 재생할 AudioSource
+        public AudioClip clickSound;    // 버튼 클릭 소리 클립
+
         [SerializeField] private TextMeshProUGUI waveText; // 웨이브 텍스트 UI
         [SerializeField] private Slider healthSlider; // 플레이어 체력 UI
         [SerializeField] private Slider levelUpSlider; // 레벨업 게이지 UI
@@ -18,10 +22,12 @@ namespace Hana.Common
         [SerializeField] private Button[] skillButtons; // 스킬 버튼 배열
         [SerializeField] private Joystick joystick; // 플레이어 이동을 위한 조이스틱
         [SerializeField] private Button attackButton; // 공격 버튼
+        [SerializeField] private Button optionButton; //옵션 버튼
 
         [SerializeField] private GameObject startScreen; // 시작 화면 UI
         [SerializeField] private GameObject gameOverScreen; // 게임 오버 화면 UI
         [SerializeField] private GameObject endingScreen; // 엔딩 화면 UI
+        [SerializeField] private GameObject optionScreen; //옵션 화면 UI
         private Button replayButton; // 리플레이 버튼 참조
 
         private void Start()
@@ -42,27 +48,20 @@ namespace Hana.Common
                 startScreen.SetActive(GameManager.Instance.CurrentState == GameState.Start);
                 Debug.Log("테스트 스타트스크린");
             }
-            else
-            {
-                Debug.Log("!테스트 스타트스크린");
-            }
             if (gameOverScreen != null)
             {
                 gameOverScreen.SetActive(GameManager.Instance.CurrentState == GameState.GameOver);
                 Debug.Log("테스트 게임오버스크린");
-            }
-            else
-            {
-                Debug.Log("!테스트 게임오버스크린");
             }
             if (endingScreen != null)
             {
                 endingScreen.SetActive(GameManager.Instance.CurrentState == GameState.Ending);
                 Debug.Log("테스트 엔딩스크린");
             }
-            else
+            if (optionScreen != null)
             {
-                Debug.Log("!테스트 엔딩스크린");
+                optionScreen.SetActive(GameManager.Instance.CurrentState == GameState.Pause);
+                Debug.Log("테스트 옵션스크린");
             }
         }
 
@@ -82,6 +81,12 @@ namespace Hana.Common
         {
             waveText.text = $"Wave {waveNumber}";
         }
+
+        public void UpdateBossText()
+        {
+            waveText.text = "Boss";
+        }
+
 
         public void UpdateHealthSlider(float currentHealth, float maxHealth)
         {
@@ -133,6 +138,31 @@ namespace Hana.Common
                 int index = i; // 버튼별로 개별 인덱스를 유지
                 skillButtons[i].onClick.RemoveAllListeners(); // 기존 이벤트 제거
                 skillButtons[i].onClick.AddListener(() => onSkillSelected(skillButtons[index].name)); // 클릭 시 이벤트 추가
+            }
+        }
+
+        public void ShowOptionScreen()
+        {
+            // 게임 오버 화면 표시
+            optionScreen.SetActive(true);
+        }
+
+        public void OnContinueButtonClicked()
+        {
+            optionScreen.SetActive(false);
+            GameManager.Instance.PlayGame();
+        }
+
+        public void OnQuitButtonClicked()
+        {
+            GameManager.Instance.QuitGame();
+        }
+
+        public void PlayClickSound()
+        {
+            if (audioSource != null && clickSound != null)
+            {
+                audioSource.PlayOneShot(clickSound); // 클릭 소리 재생
             }
         }
     }

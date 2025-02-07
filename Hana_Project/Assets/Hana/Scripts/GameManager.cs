@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using Hana.KHJ;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Hana.Common
 {
-    public enum GameState { Start, Playing, GameOver, Ending }
+    public enum GameState { Start, Playing, GameOver, Ending, Pause}
 
     public class GameManager : Singleton<GameManager>
     {
@@ -37,7 +38,7 @@ namespace Hana.Common
             UIManager.Instance.UpdateUIState();
         }
 
-        public void SetState(GameState newState)
+        private void SetState(GameState newState)
         {
             if (CurrentState == newState) return; // 중복 실행 방지
 
@@ -101,6 +102,12 @@ namespace Hana.Common
             UIManager.Instance.UpdateLevelUpSlider(levelUpProgress, levelUpMax);
         }
 
+        public void PlayGame()
+        {
+            Time.timeScale = 1f;
+            SetState(GameState.Playing);
+        }
+
         public void GameOver()
         {
             if (CurrentState == GameState.GameOver) return; // 중복 호출 방지
@@ -126,6 +133,22 @@ namespace Hana.Common
             SetState(GameState.Playing);
             Time.timeScale = 1f; // 게임 다시 시작
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        public void PauseGame() //게임 퍼즈
+        {
+            SetState(GameState.Pause);
+            Time.timeScale = 0f;
+            UIManager.Instance.ShowOptionScreen();
+        }
+        
+        public void QuitGame()
+        {
+#if UNITY_EDITOR
+            EditorApplication.isPlaying = false; // 에디터에서 플레이모드 종료
+#else
+    Application.Quit(); // 빌드된 게임 종료
+#endif
         }
     }
 }

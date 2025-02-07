@@ -76,6 +76,10 @@ namespace Hana.KHJ
         void Update()
         {
             CheckForEnemies();
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                Shooting();
+            }
         }
 
         void FixedUpdate()

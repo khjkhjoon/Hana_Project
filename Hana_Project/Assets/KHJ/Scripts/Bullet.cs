@@ -53,12 +53,24 @@ namespace Hana.KHJ
             // 적 태그에 따라 데미지 적용
             if (other.CompareTag("Enemy") && shooterTag == "Player")
             {
-                Enemy enemy = other.GetComponent<Enemy>();
-                if (enemy != null)
+                // Boss 객체인지 확인
+                Boss boss = other.GetComponent<Boss>();
+                if (boss != null)
                 {
-                    enemy.TakeDamage(damage);
+                    // Boss에 대한 처리
+                    boss.TakeDamage(damage);
+                }
+                else
+                {
+                    // 일반 Enemy에 대한 처리
+                    Enemy enemy = other.GetComponent<Enemy>();
+                    if (enemy != null)
+                    {
+                        enemy.TakeDamage(damage);
+                    }
                 }
             }
+
             else if (other.CompareTag("Player") && shooterTag == "Enemy")
             {
                 Player player = other.GetComponent<Player>();

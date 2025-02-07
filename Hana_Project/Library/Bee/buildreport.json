@@ -1,0 +1,21 @@
+{
+
+"Instructions Readme": "1) Open Chrome or Edge, 2) go to chrome://tracing, 3) click Load, 4) navigate to this file.",
+"processInfo": {
+    
+},
+
+"traceEvents":[
+{ "pid": 17648, "tid": -1, "ph": "M", "name": "process_name", "args": { "name": "Unity" } },
+{ "pid": 17648, "tid": -1, "ph": "M", "name": "process_sort_index", "args": { "sort_index": "-100" } },
+{ "pid": 17648, "tid": 1, "ph": "M", "name": "thread_name", "args": { "name": "" } },
+{ "pid": 17648, "tid": 1, "ts": 1738906000098797, "dur": 1361704, "ph": "X", "name": "Build player", "args": {} },
+{ "pid": 17648, "tid": 1, "ts": 1738906000102845, "dur": 85358, "ph": "X", "name": "Preprocess Player", "args": {} },
+{ "pid": 17648, "tid": 1, "ts": 1738906000227893, "dur": 1161532, "ph": "X", "name": "Prepare For Build", "args": {} },
+{ "pid": 17648, "tid": 1, "ts": 1738906001463199, "dur": 1923, "ph": "X", "name": "ChromeTraceHeader", "args": {} },
+{ "pid": 17648, "tid": 1, "ts": 1738906001471914, "dur": 1357, "ph": "X", "name": "", "args": {} },
+{ "pid": 17648, "tid": 1, "ts": 1738906001469068, "dur": 6094, "ph": "X", "name": "Write chrome-trace events", "args": {} },
+{}
+
+]
+}

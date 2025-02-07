@@ -1,4 +1,5 @@
 using Hana.Common;
+using Hana.KHJ;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,8 @@ public class WaveManager : Singleton<WaveManager>
     public Transform player; // 플레이어 위치
     public float spawnRadius = 2f; // 플레이어와 떨어진 최소 거리
     public float spawnInterval = 1f; // 적 소환 간격 (초)
+    public GameObject BossPrefab; //보스 프리팹
+
 
     [Header("맵 제한 설정")]
     public GameObject mapObject; // 맵 오브젝트 참조
@@ -28,6 +31,8 @@ public class WaveManager : Singleton<WaveManager>
     #region 사운드 설정
     public AudioSource audiosource;
     public AudioClip deathSound; //Enemy 죽는 소리
+    public AudioClip sirenSound;
+    public GameObject BGM;
     #endregion
 
     // 현재 웨이브의 모든 적을 추적할 리스트
@@ -80,13 +85,12 @@ public class WaveManager : Singleton<WaveManager>
 
     public void StartNextWave()
     {
-        // 게임 오버 시 웨이브 진행 차단
         if (GameManager.Instance.CurrentState == GameState.GameOver) return;
 
-        if (isWaveInProgress) return; // 이미 웨이브가 진행 중이면 실행하지 않음
+        if (isWaveInProgress) return;
         isWaveInProgress = true;
 
-        if (currentWave > maxWaves)
+        if (currentWave == maxWaves)
         {
             if (!finalBossDefeated)
             {
@@ -127,11 +131,23 @@ public class WaveManager : Singleton<WaveManager>
         return shuffledSpawnPoints[randomIndex].position;
     }
 
+    private IEnumerator WaitForSirenToEnd()
+    {
+        yield return new WaitForSeconds(sirenSound.length); // sirenSound의 길이만큼 대기
+        BGM.SetActive(true); // BGM 다시 활성화
+    }
+
     private void SpawnFinalBoss()
     {
+        BGM.SetActive(false);
+        audiosource.PlayOneShot(sirenSound);
+        StartCoroutine(WaitForSirenToEnd());
+        UIManager.Instance.UpdateBossText();
         Debug.Log("최종 보스 등장!");
         finalBossDefeated = true;
-        // TODO: 최종 보스 스폰 로직 추가
+
+        Vector3 bossPosition = new Vector3(0f, 0.5f, 0f); // 보스 위치 설정
+        GameObject boss = Instantiate(BossPrefab, bossPosition, Quaternion.identity);
     }
 
     public void EnemyDefeated(GameObject defeatedEnemy)

@@ -222,7 +222,6 @@ namespace Hana.KHJ
         {
             if (player == null)
             {
-                Debug.LogWarning("Player Transform이 설정되지 않았습니다.");
                 return false;
             }
 
@@ -239,7 +238,6 @@ namespace Hana.KHJ
                 MoveInDirection(directionToPlayer);
                 return true;
             }
-            Debug.Log("Test");
             return false;
         }
 
